@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+
+    <link href = "style.css" rel = "stylesheet" type = "text/css" />
+    <script src = "script.js"> </script>
+
+    <title> Game </title>
+</head>
+<body id = "game" onload = "initialize ();">
+      
+    <div>
+        <h1> BlackJack </h1> 
+    </div>
+    
+    <div class = "separateSmall">
+      <div id="leftCorner">
+          <button class = "glow-on-hover mediumButton" onclick = "instruction();" > Instruction </button>
+      </div>
+      <div id="rightCorner">
+          <mark> Cash: $ <span id = "initialValue">50000</span></mark>
+      </div>
+    </div>
+
+    <div class = "box-1">
+        <div id = "DealerHand"> </div>
+    </div>
+
+    <div class = "box-2">
+        <div>
+            <img alt="shuffled facedown deck"src = "cardimages/back-blue-75-2.png"/> 
+        </div>
+    </div>
+
+    <div class = "small">
+        <div>
+            <button class = "glow-on-hover largeButton" onclick = "hit ();"> Hit </button>
+            <button class = "glow-on-hover largeButton" onclick = "stand ();"> Stand </button>
+        </div>
+    </div>
+
+    <div class = "box-3">
+        <div id = "PlayerHand"> </div>
+    </div>
+    
+    <div class = "small">
+        <div> 
+            Amount Bet: $ <span id = "bet"> 0 </span>
+        </div> 
+    </div>
+
+    <div id = "continueScreen" class = "hiddenModal">
+        <div class = "modal-content">
+            <span class = "close"> &times; </span>
+            <span id = "status"> </span>
+            <div> 
+                <button onclick = "continueGame ();"> Continue </button> 
+            </div>
+        </div>
+    </div>
+
+    <div id = "bettingScreen" class = "modal">
+        <div class = "modal-content">
+            Max Bet: $5000
+            <div>
+                <button class = "glow-on-hover" onclick = "bet (-100);"> Bet 100 </button>
+                <button class = "glow-on-hover" onclick = "bet (-1000);"> Bet 1000 </button>
+                <button class = "glow-on-hover" onclick = "bet (-2500);"> Bet 2500 </button>
+                <button class = "glow-on-hover" onclick = "bet (-5000);"> Bet 5000 </button>
+            </div>
+            <p> Betting Amount: $ <span id = "amountBet"> 0 </span> </p>
+            <div> 
+                <button class = "glow-on-hover largeButton" onclick = "confirmBet ();"> Confirm Bet </button>
+            </div>
+        </div>
+    </div>
+
+    <div id = "rules" class = "hiddenModal">
+      <div class = "modal-content">
+        <div>
+            <h2> Instructions </h2>
+                One card will be distributed over to every player facedown and another card faceup.
+            <br>
+                Aces count as 1 or 11, and face cards as 10. The rest of the cards are counted by their values.
+            <br>
+                The player goes first and must decide whether to "stand" (not ask for another card), "hit" (ask for another card in an attempt to get closer to a count of 21, or even hit 21 exactly), or go "bust" (if it is over 21)
+            <br>
+                When the dealer's total is 17 or more, it must stand. If the total is 16 or under, they must take a card.
+            <br> 
+                Both can also win with 5 cards in hand without "bust"
+            <br>
+            <strong> 
+                <em> Click anywhere outside to close </em>
+            </strong>
+        </div>
+    </div>
+    
+</body>
+</html>
